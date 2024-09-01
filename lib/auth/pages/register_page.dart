@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:myapp/shared/widgets/my_botton.dart';
 import 'package:myapp/shared/widgets/my_texfield.dart';
 
-class LoginPage extends StatelessWidget {
-  final TextEditingController _emailcontroller = TextEditingController();
-  final TextEditingController _passwordcontroller = TextEditingController();
+class RegisterPage extends StatelessWidget {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   final void Function()? toggleScreen;
+  RegisterPage({super.key, this.toggleScreen});
 
-  LoginPage({super.key, this.toggleScreen});
-
-  //login method
-  void login() {}
+  //register method
+  void register() {}
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class LoginPage extends StatelessWidget {
             //email field
             MyTexField(
               hintText: 'email',
-              controller: _emailcontroller,
+              controller: _emailController,
             ),
             const SizedBox(
               height: 10,
@@ -51,15 +52,24 @@ class LoginPage extends StatelessWidget {
             MyTexField(
               hintText: 'password',
               oscureText: true,
-              controller: _passwordcontroller,
+              controller: _passwordController,
+            ),
+            //login
+            const SizedBox(
+              height: 10,
+            ),
+            MyTexField(
+              hintText: 'confirm password',
+              oscureText: true,
+              controller: _confirmPasswordController,
             ),
             //login
             const SizedBox(
               height: 10,
             ),
             MyButton(
-              text: 'Login',
-              onTap: login,
+              text: 'Register',
+              onTap: register,
             ),
             //Register
             const SizedBox(
@@ -69,12 +79,12 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'Not a member? ',
+                  'Already have an account? ',
                 ),
                 GestureDetector(
                   onTap: toggleScreen,
                   child: const Text(
-                    'Register Now',
+                    'Login Now',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 )
