@@ -20,14 +20,14 @@ class _LoginOrRegisterState extends State<LoginOrRegister> {
 
   @override
   Widget build(BuildContext context) {
-    if (showLoginPage) {
-      return LoginPage(
-        toggleScreen: togglePages,
-      );
-    } else {
-      return RegisterPage(
-        toggleScreen: togglePages,
-      );
-    }
+    return Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        body: showLoginPage
+            ? LoginPage(
+                toggleScreen: togglePages,
+              )
+            : RegisterPage(
+                toggleScreen: togglePages,
+              ));
   }
 }
