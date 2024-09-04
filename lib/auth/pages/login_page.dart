@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/auth/auth_services.dart';
 import 'package:myapp/shared/widgets/my_botton.dart';
 import 'package:myapp/shared/widgets/my_texfield.dart';
 
@@ -11,7 +12,20 @@ class LoginPage extends StatelessWidget {
   LoginPage({super.key, this.toggleScreen});
 
   //login method
-  void login() {}
+  void login(BuildContext context) async {
+    final authService = AuthServices();
+
+    try {
+      authService.signInWithEmailPassword(
+          _emailcontroller.text, _passwordcontroller.text);
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +71,7 @@ class LoginPage extends StatelessWidget {
           ),
           MyButton(
             text: 'Login',
-            onTap: login,
+            onTap: () => login(context),
           ),
           //Register
           const SizedBox(

@@ -5,13 +5,30 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:myapp/main.dart';
 
+import 'firebase_mock.dart';
+
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  // late MockFirebaseAuth mockFirebaseAuth;
+  setupFirebaseAuthMocks();
+  setUpAll(() async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    await Firebase
+        .initializeApp(); // Initialize Firebase before running any tests
+    // mockFirebaseAuth = MockFirebaseAuth();
+  });
+  testWidgets('GeneralTest', (WidgetTester tester) async {
+    // Use the mocked FirebaseAuth instance
+    // Render the login screen with a mock Firebase instance
     await tester.pumpWidget(const MyApp());
   });
 }
+
+  // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  //   // Build our app and trigger a frame.
+  //   await tester.pumpWidget(const MyApp());
+  // });
