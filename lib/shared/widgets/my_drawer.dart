@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/apps/main/pages/settings_page.dart';
+import 'package:myapp/apps/auth/auth_services.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+
+  void logout() {
+    final auth = AuthServices();
+    auth.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,29 +26,28 @@ class MyDrawer extends StatelessWidget {
                 //menu items
 
                 ListTile(
-                  leading: Icon(Icons.home),
-                  title: Text("Home"),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/');
-                  },
+                  leading: const Icon(Icons.home),
+                  title: const Text("Home"),
+                  onTap: () {},
                 ),
 
                 ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text("Settings"),
+                  leading: const Icon(Icons.settings),
+                  title: const Text("Settings"),
                   onTap: () {
-                    Navigator.pushNamed(context, '/settings');
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingPage()));
                   },
                 ),
               ],
             ),
             ListTile(
-              leading: Icon(Icons.logout),
-              title: Text("Logout"),
-              onTap: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-            ),
+                leading: const Icon(Icons.logout),
+                title: const Text("Logout"),
+                onTap: logout),
           ],
         ),
       ),
