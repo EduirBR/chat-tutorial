@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/auth/auth_services.dart';
 import 'package:myapp/shared/widgets/my_botton.dart';
 import 'package:myapp/shared/widgets/my_texfield.dart';
 
@@ -12,7 +13,29 @@ class RegisterPage extends StatelessWidget {
   RegisterPage({super.key, this.toggleScreen});
 
   //register method
-  void register() {}
+  void register(BuildContext context) {
+    final auth = AuthServices();
+    if (_passwordController.text != _confirmPasswordController.text) {
+      showDialog(
+          context: context,
+          builder: (context) => const AlertDialog(
+                title: Text('Passwords do not match'),
+              ));
+      return;
+    }
+    try {
+      auth.signUpWithEmailPassword(
+        _emailController.text,
+        _passwordController.text,
+      );
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +90,7 @@ class RegisterPage extends StatelessWidget {
           ),
           MyButton(
             text: 'Register',
-            onTap: register,
+            onTap: () => register(context),
           ),
           //Register
           const SizedBox(
