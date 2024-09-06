@@ -16,8 +16,16 @@ class LoginPage extends StatelessWidget {
     final authService = AuthServices();
 
     try {
-      authService.signInWithEmailPassword(
-          _emailcontroller.text, _passwordcontroller.text);
+      if (_emailcontroller.text.isNotEmpty &&
+          _passwordcontroller.text.isNotEmpty) {
+        await authService.signInWithEmailPassword(
+            _emailcontroller.text, _passwordcontroller.text);
+      } else {
+        showDialog(
+            context: context,
+            builder: (context) => const AlertDialog(
+                title: Text("Los campos no pueden estar vacios")));
+      }
     } catch (e) {
       showDialog(
           context: context,
