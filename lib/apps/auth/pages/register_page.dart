@@ -44,11 +44,9 @@ class RegisterPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           //logo
-          Icon(
-            Icons.message,
-            size: 60,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 80, maxHeight: 76),
+              child: Image.asset('assets/logo_nobg.png')),
           //wbtext
           Text(
             "Wb you've been missed",

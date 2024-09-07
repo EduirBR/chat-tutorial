@@ -22,7 +22,11 @@ class MyDrawer extends StatelessWidget {
             Column(
               children: [
                 //logo
-                const DrawerHeader(child: Icon(Icons.message)),
+                DrawerHeader(
+                  child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 100),
+                      child: Image.asset('assets/logo_nobg.png')),
+                ),
                 //menu items
 
                 // ListTile(
