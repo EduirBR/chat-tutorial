@@ -25,11 +25,11 @@ class MyDrawer extends StatelessWidget {
                 const DrawerHeader(child: Icon(Icons.message)),
                 //menu items
 
-                ListTile(
-                  leading: const Icon(Icons.home),
-                  title: const Text("Home"),
-                  onTap: () {},
-                ),
+                // ListTile(
+                //   leading: const Icon(Icons.home),
+                //   title: const Text("Home"),
+                //   onTap: () {},
+                // ),
 
                 ListTile(
                   leading: const Icon(Icons.settings),

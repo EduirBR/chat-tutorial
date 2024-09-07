@@ -9,6 +9,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:myapp/main.dart';
+import 'package:myapp/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'firebase_mock.dart';
 
@@ -24,7 +26,15 @@ void main() {
   testWidgets('GeneralTest', (WidgetTester tester) async {
     // Use the mocked FirebaseAuth instance
     // Render the login screen with a mock Firebase instance
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => ThemeProvider()),
+          // Agrega más proveedores aquí si los necesitas
+        ],
+        child: const MyApp(),
+      ),
+    );
   });
 }
 

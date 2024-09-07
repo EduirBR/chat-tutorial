@@ -16,6 +16,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home page"),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.grey.shade600,
       ),
       drawer: const MyDrawer(),
       body: _buildUserList(),

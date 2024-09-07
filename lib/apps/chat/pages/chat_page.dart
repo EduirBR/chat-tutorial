@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/apps/auth/auth_services.dart';
 import 'package:myapp/apps/chat/chat_services.dart';
+import 'package:myapp/apps/chat/widgets/chat_bubble.dart';
 import 'package:myapp/shared/widgets/my_texfield.dart';
 
 class ChatPage extends StatelessWidget {
@@ -63,7 +64,15 @@ class ChatPage extends StatelessWidget {
 
     var alignment =
         isCurrentUser ? Alignment.centerRight : Alignment.bottomLeft;
-    return Container(alignment: alignment, child: Text(data["message"]));
+    return Container(
+        alignment: alignment,
+        child: Column(
+          crossAxisAlignment:
+              isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          children: [
+            ChatBubble(message: data["message"], isCurrentUser: isCurrentUser),
+          ],
+        ));
   }
 
   //build message input
