@@ -53,7 +53,7 @@ class _ChatPageState extends State<ChatPage> {
   final ScrollController _scrollController = ScrollController();
   void scrollDown() {
     _scrollController.animateTo(_scrollController.position.maxScrollExtent,
-        duration: const Duration(seconds: 1), curve: Curves.fastOutSlowIn);
+        duration: const Duration(seconds: 1), curve: Curves.easeInOut);
   }
 
   //send message
@@ -88,6 +88,14 @@ class _ChatPageState extends State<ChatPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Text("Loading");
           }
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            scrollDown();
+            if (_scrollController.position.pixels >=
+                _scrollController.position.maxScrollExtent - 100) {
+              scrollDown();
+            }
+          });
+
           return ListView(
               controller: _scrollController,
               children: snapshot.data!.docs
