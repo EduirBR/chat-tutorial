@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/apps/auth/auth_services.dart';
-import 'package:myapp/apps/chat/chat_services.dart';
-import 'package:myapp/apps/chat/widgets/chat_bubble.dart';
-import 'package:myapp/shared/widgets/my_texfield.dart';
+import 'package:chatcito/apps/auth/auth_services.dart';
+import 'package:chatcito/apps/chat/chat_services.dart';
+import 'package:chatcito/apps/chat/widgets/chat_bubble.dart';
+import 'package:chatcito/shared/widgets/my_texfield.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage(

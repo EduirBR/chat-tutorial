@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/themes/dart_theme.dart';
-import 'package:myapp/themes/light_theme.dart';
+import 'package:chatcito/themes/dart_theme.dart';
+import 'package:chatcito/themes/light_theme.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeData _themeData = lightMode;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/apps/auth/pages/login_page.dart';
-import 'package:myapp/apps/auth/pages/register_page.dart';
-import 'package:myapp/themes/theme_provider.dart';
+import 'package:chatcito/apps/auth/pages/login_page.dart';
+import 'package:chatcito/apps/auth/pages/register_page.dart';
+import 'package:chatcito/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class LoginOrRegister extends StatefulWidget {

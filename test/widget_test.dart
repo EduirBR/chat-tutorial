@@ -8,8 +8,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:myapp/main.dart';
-import 'package:myapp/themes/theme_provider.dart';
+import 'package:chatcito/main.dart';
+import 'package:chatcito/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_mock.dart';
@@ -32,7 +32,7 @@ void main() {
           ChangeNotifierProvider(create: (_) => ThemeProvider()),
           // Agrega más proveedores aquí si los necesitas
         ],
-        child: const MyApp(),
+        child: const chatcito(),
       ),
     );
   });
@@ -40,5 +40,5 @@ void main() {
 
   // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
   //   // Build our app and trigger a frame.
-  //   await tester.pumpWidget(const MyApp());
+  //   await tester.pumpWidget(const chatcito());
   // });

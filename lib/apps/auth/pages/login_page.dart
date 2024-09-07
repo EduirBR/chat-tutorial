@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/apps/auth/auth_services.dart';
-import 'package:myapp/shared/widgets/my_botton.dart';
-import 'package:myapp/shared/widgets/my_texfield.dart';
+import 'package:chatcito/apps/auth/auth_services.dart';
+import 'package:chatcito/shared/widgets/my_botton.dart';
+import 'package:chatcito/shared/widgets/my_texfield.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailcontroller = TextEditingController();

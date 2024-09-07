@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/themes/theme_provider.dart';
+import 'package:chatcito/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class SettingPage extends StatelessWidget {

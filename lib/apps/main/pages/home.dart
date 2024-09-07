@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/apps/auth/auth_services.dart';
-import 'package:myapp/apps/chat/chat_services.dart';
-import 'package:myapp/apps/chat/pages/chat_page.dart';
-import 'package:myapp/apps/main/widgets/user_tile.dart';
-import 'package:myapp/shared/widgets/my_drawer.dart';
+import 'package:chatcito/apps/auth/auth_services.dart';
+import 'package:chatcito/apps/chat/chat_services.dart';
+import 'package:chatcito/apps/chat/pages/chat_page.dart';
+import 'package:chatcito/apps/main/widgets/user_tile.dart';
+import 'package:chatcito/shared/widgets/my_drawer.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
